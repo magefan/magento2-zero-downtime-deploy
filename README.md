@@ -1,4 +1,4 @@
-# [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by Magefan
+# [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by [Magefan](https://magefan.com/magento2-extensions)
 
   * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
   * [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
