@@ -1,20 +1,23 @@
-# Magento 2 Zero Downtime deploy
+# [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by Magefan
 
 
-## Installation
-1. Download and unzip archive
-2. The files to deploy folder in Magento 2 root directory
-3. Rename deploy/app/static-content-deploy.sh.sample to deploy/app/static-content-deploy.sh and define static-content commands depending on your project
-4. Copy file app/etc/env.php to deploy/app/env.php, if you use redis or other custom software for session or cache, then change this config to setup default save in files cache and session optoins.
-5. Run command
-`chmod +x deploy/run`
+### [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
+### [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
+### [Usage](https://magefan.com/blog/magento-2-zero-downtime-deployment#usage)
 
-## How to use?
-
-Run command
-
-`deploy/run [--all] [--upgrade] [--di] [--static-content]`
-
-or
-
-`deploy/run [-a] [-u] [-d] [-s]`
+## Magento 2 Extensions by Magefan
+  * [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
+  * [Magento 2 Blog Plus Extension](https://magefan.com/magento2-blog-extension/pricing)
+  * [Magento 2 Blog Extra Extension](https://magefan.com/magento2-blog-extension/pricing)
+  * [Magento 2 Login As Customer Extension](https://magefan.com/login-as-customer-magento-2-extension)
+  * [Magento 2 Convert Guest to Customer Extension](https://magefan.com/magento2-convert-guest-to-customer)
+  * [Magento 2 Facebook Open Graph Extension](https://magefan.com/magento-2-open-graph-extension-og-tags)
+  * [Magento 2 Auto Currency Switcher Extension](https://magefan.com/magento-2-currency-switcher-auto-currency-by-country)
+  * [Magento 2 Auto Language Switcher Extension](https://magefan.com/magento-2-auto-language-switcher)
+  * [Magento 2 GeoIP Switcher Extension](https://magefan.com/magento-2-geoip-switcher-extension)
+  * [Magento 2 YouTube Widget Extension](https://magefan.com/magento2-youtube-extension)
+  * [Magento 2 Product Widget Advanced Extension](https://magefan.com/magento-2-product-widget)
+  * [Magento 2 Conflict Detector Extension](https://magefan.com/magento2-conflict-detector)
+  * [Magento 2 Lazy Load Extension](https://magefan.com/magento-2-image-lazy-load-extension)
+  * [Magento 2 Rocket JavaScript Extension](https://magefan.com/rocket-javascript-deferred-javascript)
+  * [Magento 2 CLI Extension](https://magefan.com/magento2-cli-extension)
