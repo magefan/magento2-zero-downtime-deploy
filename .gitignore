@@ -1,0 +1,4 @@
+instance
+app/static-content-deploy.sh
+app/env.php
+test.sh

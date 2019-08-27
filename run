@@ -1,0 +1,130 @@
+#!/bin/bash
+
+usage()
+{
+    echo "usage:  bash deploy/run.sh [-a] | [-u] | [-d] | [-s]"
+}
+
+if [ $# -gt 0 ]; then
+	echo ''
+else
+    SETUP_ALL=1
+fi
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -a | --all | -u | --upgrade )		
+                                				SETUP_ALL=1
+                                				;;
+        -d | --di )    							SETUP_DI=1
+                                				;;
+        -s | --static-content )    				SETUP_STATIC_CONTENT=1
+                                				;;
+        -h | --help )           				usage
+                                				exit
+                                ;;
+        * )                     usage
+                                exit 1
+    esac
+    shift
+done
+
+MDIR="$PWD"
+DIR="$PWD/deploy"
+cd $DIR
+INSTANCE="$PWD/instance"
+
+SEK=SECONDS
+echo 'Remove old files ...'
+rm -rf $INSTANCE
+echo 'Create new instance folders and files ...'
+mkdir -p $INSTANCE;
+cd $INSTANCE
+
+mkdir -p generated;
+mkdir -p pub;
+mkdir -p pub/static;
+mkdir -p var;
+
+cp -rf $MDIR/app app
+cp -rf $MDIR/bin bin
+cp -rf $MDIR/setup setup
+cp -rf $MDIR/vendor vendor
+
+# temporary copy env.php file with save cache local
+rm app/etc/env.php
+cp -rf $DIR/app/env.php app/etc/env.php
+
+
+ln -sfn $MDIR/deploy deploy
+ln -sfn $MDIR/dev dev
+ln -sfn $MDIR/lib lib
+ln -sfn $MDIR/phpserver phpserver
+
+
+ln -sfn $MDIR/update update
+ln -sfn $MDIR/composer.json composer.json
+ln -sfn $MDIR/composer.lock composer.lock
+
+
+echo 'Start deploying ...'
+
+if [ $SETUP_ALL ] || [ $SETUP_DI ]; then
+	$INSTANCE/bin/magento setup:di:compile
+fi
+
+if [ $SETUP_ALL ] || [ $SETUP_STATIC_CONTENT ]; then
+	#$INSTANCE/bin/magento setup:static-content:deploy
+	. "$DIR/app/static-content-deploy.sh"
+fi
+
+
+if [ $SETUP_ALL ]; then
+	$MDIR/bin/magento maintenance:enable
+	$MDIR/bin/magento setup:upgrade
+fi
+
+
+if [ $SETUP_ALL ]; then
+	GENERATED_FOLDERS=( "generated" "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
+else
+	GENERATED_FOLDERS=()
+	if [ $SETUP_DI ]; then
+		GENERATED_FOLDERS+=( "generated")
+	fi
+	if [ $SETUP_STATIC_CONTENT ]; then
+		GENERATED_FOLDERS+=( "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
+	fi
+fi
+
+
+echo 'Copy new files into Magento ... '
+for i in "${GENERATED_FOLDERS[@]}"
+do
+   : 
+   cp -rf $i "$MDIR/$i-deploy"
+done
+
+echo 'Replace files in Magento ... '
+for i in "${GENERATED_FOLDERS[@]}"
+do
+   : 
+   mv "$MDIR/$i" "$MDIR/$i-old-deploy"
+   mv "$MDIR/$i-deploy" "$MDIR/$i"
+done
+
+echo 'Remove magento pub/static/_cache ... '
+rm -rf "$MDIR/pub/static/_cache"
+
+echo 'Replace old Magento files ... '
+for i in "${GENERATED_FOLDERS[@]}"
+do
+   : 
+   rm -rf "$MDIR/$i-old-deploy"
+done
+
+if [ $SETUP_ALL ]; then
+	$MDIR/bin/magento maintenance:disable
+fi
+
+$MDIR/bin/magento c:f

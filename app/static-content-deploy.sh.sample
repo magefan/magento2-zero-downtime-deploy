@@ -1,0 +1,2 @@
+$INSTANCE/bin/magento setup:static-content:deploy -f
+#$INSTANCE/bin/magento setup:static-content:deploy -f --theme=Vendor/theme_name nl_NL
