@@ -1,6 +1,5 @@
 # [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by Magefan
 
-Guide
   * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
   * [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
   * [Usage](https://magefan.com/blog/magento-2-zero-downtime-deployment#usage)
