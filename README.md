@@ -1,9 +1,9 @@
 # [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by Magefan
 
-
-### [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
-### [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
-### [Usage](https://magefan.com/blog/magento-2-zero-downtime-deployment#usage)
+Guide
+  * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
+  * [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
+  * [Usage](https://magefan.com/blog/magento-2-zero-downtime-deployment#usage)
 
 ## Magento 2 Extensions by Magefan
   * [Magento 2 Blog Extension](https://magefan.com/magento2-blog-extension)
