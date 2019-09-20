@@ -2,32 +2,53 @@
 
 usage()
 {
-    echo "usage:  bash deploy/run.sh [-a] | [-u] | [-d] | [-s]"
+    echo "usage:  bash deploy/run.sh [-a] | [-u] | [-d] | [-s] | [-m]"
 }
 
 if [ $# -gt 0 ]; then
-	echo ''
+    echo ''
 else
     SETUP_ALL=1
 fi
 
+
+LAST_OPTION='';
+SETUP_MODULES=''
 while [ "$1" != "" ]; do
     case $1 in
-        -a | --all | -u | --upgrade )		
-                                				SETUP_ALL=1
-                                				;;
-        -d | --di )    							SETUP_DI=1
-                                				;;
-        -s | --static-content )    				SETUP_STATIC_CONTENT=1
-                                				;;
-        -h | --help )           				usage
-                                				exit
-                                ;;
-        * )                     usage
-                                exit 1
+        -a | --all | -u | --upgrade )       
+            SETUP_ALL=1
+            ;;
+        -d | --di )
+            SETUP_DI=1
+            ;;
+        -s | --static-content )
+            SETUP_STATIC_CONTENT=1
+            ;;
+        -m | --modules )
+            #do nothing here
+            ;;
+        -h | --help )
+            usage
+            exit
+            ;;
+        * )
+            if [ "$LAST_OPTION" != -m ] && [ "$LAST_OPTION" != --modules ]; then
+                usage
+                exit 1
+            else
+                SETUP_MODULES="$SETUP_MODULES $1"
+                shift
+                continue
+            fi
     esac
+    LAST_OPTION=$1
     shift
 done
+
+if [ "$SETUP_MODULES" ]; then
+    SETUP_ALL=1
+fi
 
 MDIR="$PWD"
 DIR="$PWD/deploy"
@@ -67,34 +88,39 @@ ln -sfn $MDIR/composer.json composer.json
 ln -sfn $MDIR/composer.lock composer.lock
 
 
+if [ "$SETUP_MODULES" ]; then
+    echo 'Enabling modules ...'
+    $INSTANCE/bin/magento module:enable $SETUP_MODULES
+fi
+
 echo 'Start deploying ...'
 
 if [ $SETUP_ALL ] || [ $SETUP_DI ]; then
-	$INSTANCE/bin/magento setup:di:compile
+    $INSTANCE/bin/magento setup:di:compile
 fi
 
 if [ $SETUP_ALL ] || [ $SETUP_STATIC_CONTENT ]; then
-	#$INSTANCE/bin/magento setup:static-content:deploy
-	. "$DIR/app/static-content-deploy.sh"
+    #$INSTANCE/bin/magento setup:static-content:deploy
+    . "$DIR/app/static-content-deploy.sh"
 fi
 
 
 if [ $SETUP_ALL ]; then
-	$MDIR/bin/magento maintenance:enable
-	$MDIR/bin/magento setup:upgrade
+    $MDIR/bin/magento maintenance:enable
+    $MDIR/bin/magento setup:upgrade
 fi
 
 
 if [ $SETUP_ALL ]; then
-	GENERATED_FOLDERS=( "generated" "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
+    GENERATED_FOLDERS=( "generated" "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
 else
-	GENERATED_FOLDERS=()
-	if [ $SETUP_DI ]; then
-		GENERATED_FOLDERS+=( "generated")
-	fi
-	if [ $SETUP_STATIC_CONTENT ]; then
-		GENERATED_FOLDERS+=( "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
-	fi
+    GENERATED_FOLDERS=()
+    if [ $SETUP_DI ]; then
+        GENERATED_FOLDERS+=( "generated")
+    fi
+    if [ $SETUP_STATIC_CONTENT ]; then
+        GENERATED_FOLDERS+=( "pub/static/adminhtml" "pub/static/frontend" "pub/static/deployed_version.txt" "var/view_preprocessed" )
+    fi
 fi
 
 
@@ -124,7 +150,7 @@ do
 done
 
 if [ $SETUP_ALL ]; then
-	$MDIR/bin/magento maintenance:disable
+    $MDIR/bin/magento maintenance:disable
 fi
 
 $MDIR/bin/magento c:f
