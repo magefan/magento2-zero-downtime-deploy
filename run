@@ -203,6 +203,7 @@ if [ $SETUP_ALL ]; then
 fi
 
 cd $MDIR
+bin/magento c:e
 bin/magento c:f
 
 echo 'Remove tmp files ...'
