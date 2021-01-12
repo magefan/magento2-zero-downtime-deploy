@@ -1,5 +1,9 @@
 # [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by [Magefan](https://magefan.com/magento2-extensions)
 
+
+## Attention! This script is deprecated, we strongly recommend to use [Magento 2 Zero Downtime Deployment Extension](https://magefan.com/magento-2-zero-downtime-deployment).
+
+
   * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
   * [Configuration](https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration)
   * [Usage](https://magefan.com/blog/magento-2-zero-downtime-deployment#usage)
