@@ -1,10 +1,10 @@
 # [Magento 2 Zero Downtime deploy](https://magefan.com/blog/magento-2-zero-downtime-deployment) by [Magefan](https://magefan.com/magento2-extensions)
-
+<img width="150" height="100" src="https://magefan.com/media/wysiwyg/made_in_ukraine.jpg">
 
 ## Attention! This script is deprecated, we strongly recommend to use [Magento 2 Zero Downtime Deployment Extension](https://magefan.com/magento-2-zero-downtime-deployment).
 
 
-<a href="https://magefan.com/magento-2-zero-downtime-deployment"><img width="300" height="60" src="https://cm.magefan.com/mf_webp/png/media/wysiwyg/DOWNLOAD_NOW.webp"></a>
+<a href="https://magefan.com/magento-2-zero-downtime-deployment"><img width="190" height="70" src="https://magefan.com/media/wysiwyg/download-now_1.png"></a>
 
 
   * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
