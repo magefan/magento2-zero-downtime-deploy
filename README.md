@@ -7,7 +7,7 @@
 ## Attention! This script is deprecated, we strongly recommend to use [Magento 2 Zero Downtime Deployment Extension](https://magefan.com/magento-2-zero-downtime-deployment).
 
 
-<a href="https://magefan.com/magento-2-zero-downtime-deployment"><img width="190" height="70" src="https://magefan.com/media/wysiwyg/download-now_1.png"></a>
+<a href="https://magefan.com/magento-2-zero-downtime-deployment"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/download-magefan-extensions.png"></a><a href="https://magefan.com/magento-2-zero-downtime-deployment#live-demo"><img width="190" height="70" src="https://cm.magefan.com/wysiwyg/products/magefan-live-demo.png"></a>
 
 
   * [Installation](https://magefan.com/blog/magento-2-zero-downtime-deployment#installation)
