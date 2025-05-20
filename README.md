@@ -18,20 +18,21 @@
 
 ### [Magento 2 Google Extensions](https://magefan.com/magento-2-extensions/google-extensions)
 
-  * [Magento 2 Google Indexing API](https://magefan.com/magento-2-google-indexing-api)
+  * [Magento 2 Google Indexing](https://magefan.com/magento-2-google-indexing-api)
   * [Magento 2 Google Analytics 4](https://magefan.com/magento-2-google-analytics-4)
   * [Magento 2 Google Tag Manager](https://magefan.com/magento-2-google-tag-manager)
   * [Magento 2 Google Shopping Feed](https://magefan.com/magento-2-google-shopping-feed-extension)
   * [Magento 2 Google Customer Reviews](https://magefan.com/magento-2-google-customer-reviews)
 
-### [Magento 2 SEO Extensions](https://magefan.com/magento-2-extensions/magento-2-seo-extensions)
+### Magento 2 SEO Extensions
 
   * [Magento 2 SEO Extension](https://magefan.com/magento-2-seo-extension)
   * [Magento 2 Rich Snippets](https://magefan.com/magento-2-rich-snippets)
   * [Magento 2 HTML Sitemap](https://magefan.com/magento-2-html-sitemap-extension)
   * [Magento 2 XML Sitemap](https://magefan.com/magento-2-xml-sitemap-extension)
+  * [Magento 2 Facebook Open Graph](https://magefan.com/magento-2-open-graph-extension-og-tags)
   * [Magento 2 Twitter Cards](https://magefan.com/magento-2-twitter-cards-extension)
-  * [Magento 2 Facebook Open Graph Tags](https://magefan.com/magento-2-open-graph-extension-og-tags)
+
 
 ### [Magento 2 Speed Optimization Extensions](https://magefan.com/magento-2-extensions/speed-optimization)
 
@@ -43,6 +44,8 @@
 
   ### [Magento 2 Admin Panel Extensions](https://magefan.com/magento-2-extensions/admin-extensions)
 
+  * [Magento 2 Size Chart Extension](https://magefan.com/magento-2-size-chart)
+  * [Magento 2 Security Extension](https://magefan.com/magento-2-security-extension)
   * [Magento 2 Admin Action Log](https://magefan.com/magento-2-admin-action-log)
   * [Magento 2 Order Editor](https://magefan.com/magento-2-edit-order-extension)
   * [Magento 2 Better Order Grid](https://magefan.com/magento-2-better-order-grid-extension)
@@ -54,13 +57,13 @@
   * [Magento 2 Admin Email Notifications](https://magefan.com/magento-2-admin-email-notifications)
   * [Magento 2 Login As Customer](https://magefan.com/login-as-customer-magento-2-extension)
 
-### [Magento 2 Blog Extensions](https://magefan.com/magento-2-extensions/blog-extensions)
+### Magento 2 Blog Extensions
 
   * [Magento 2 Blog](https://magefan.com/magento2-blog-extension)
   * [Magento 2 Multi Blog](https://magefan.com/magento-2-multi-blog-extension)
   * [Magento 2 Product Widget](https://magefan.com/magento-2-product-widget)
 
-### [Magento 2 Marketing Automation Extensions](https://magefan.com/magento-2-extensions/magento-marketing-automation)
+### [Magento 2 Marketing Automation Extensions](https://magefan.com/magento-2-extensions/marketing-automation)
 
   * [Magento 2 Cookie Consent](https://magefan.com/magento-2-cookie-consent)
   * [Magento 2 Product Labels](https://magefan.com/magento-2-product-labels)
@@ -69,13 +72,13 @@
   * [Magento 2 Dynamic Blocks and Pages Extension](https://magefan.com/magento-2-cms-display-rules-extension)
   * [Magento 2 Automatic Related Products](https://magefan.com/magento-2-automatic-related-products)
   * [Magento 2 Price History](https://magefan.com/magento-2-price-history)
-  * [Magento 2 Mautic Extension](https://magefan.com/magento-2-mautic-extension)
-  * [Magento 2 YouTube Video Extension](https://magefan.com/magento2-youtube-extension)    
+  * [Magento 2 Mautic Integration](https://magefan.com/magento-2-mautic-extension)
+  * [Magento 2 YouTube Video](https://magefan.com/magento2-youtube-extension)    
  
 ### [Magento 2 Cart Extensions](https://magefan.com/magento-2-extensions/cart-extensions)
 
-  * [Better Magento 2 Checkout Extension](https://magefan.com/better-magento-2-checkout-extension)
-  * [Magento 2 Coupon Code Link](https://magefan.com/magento-2-coupon-code-link)
+  * [Magento 2 Checkout Extension](https://magefan.com/better-magento-2-checkout-extension)
+  * [Magento 2 Coupon Code](https://magefan.com/magento-2-coupon-code-link)
   * [Magento 2 Guest to Customer](https://magefan.com/magento2-convert-guest-to-customer)
 
 ### [Magento 2 Multi-Language Extensions](https://magefan.com/magento-2-extensions/multi-language-extensions)
@@ -84,7 +87,7 @@
   * [Magento 2 Auto Currency Switcher](https://magefan.com/magento-2-currency-switcher-auto-currency-by-country)
   * [Magento 2 Auto Language Switcher](https://magefan.com/magento-2-auto-language-switcher)
   * [Magento 2 GeoIP Store Switcher](https://magefan.com/magento-2-geoip-switcher-extension)
-  * [Magento 2 Translation Extension](https://magefan.com/magento-2-translation-extension)
+  * [Magento 2 Translation](https://magefan.com/magento-2-translation-extension)
 
 ### [Developers Tools](https://magefan.com/magento-2-extensions/developer-tools)
 
