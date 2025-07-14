@@ -102,3 +102,4 @@
   * [Shopify Size Chart](https://magefan.com/shopify/apps/size-chart)
   * [Shopify Google Indexer](https://magefan.com/shopify/apps/google-indexing)
   * [Shopify Product Feeds](https://magefan.com/shopify/apps/product-feed)
+  * [Shopify Server GTM & GA4](https://magefan.com/shopify/apps/gtm-and-ga4)
