@@ -124,7 +124,7 @@ cp -rf $MDIR/lib lib
 cp -rf $MDIR/setup setup
 cp -rf $MDIR/vendor vendor
 cp -rf $MDIR/phpserver phpserver
-cp -rf $MDIR/update update
+#cp -rf $MDIR/update update
 cp -rf $MDIR/composer.json composer.json
 cp -rf $MDIR/composer.lock composer.lock
 
@@ -152,8 +152,8 @@ fi
 
 
 if [ $SETUP_ALL ]; then
-    cd $MDIR
-    bin/magento maintenance:enable
+    #cd $MDIR
+    #bin/magento maintenance:enable
     cd $INSTANCE
     bin/magento setup:upgrade --keep-generated $MAGE_INIT_PARAMS
 fi
@@ -197,10 +197,10 @@ do
    rm -rf "$MDIR/$i-old-deploy"
 done
 
-if [ $SETUP_ALL ]; then
-    cd $MDIR
-    bin/magento maintenance:disable
-fi
+#if [ $SETUP_ALL ]; then
+#    cd $MDIR
+#    bin/magento maintenance:disable
+#fi
 
 cd $MDIR
 bin/magento c:e
