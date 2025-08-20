@@ -16,7 +16,6 @@ else
 
     echo "";
     echo "";
-    echo "Edit deploy/app/env.php file to disconnect it from live session and cache."; 
-    echo "Edit deploy/app/static-content-deploy.sh to set correct static-deploy commands"
+    echo "Configuration user guide: https://magefan.com/blog/magento-2-zero-downtime-deployment#configuration"; 
     echo 'To execute deployment, run the command: ./deploy/run'
 fi
