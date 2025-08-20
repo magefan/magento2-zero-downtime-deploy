@@ -7,6 +7,7 @@ else
     unzip master.zip
     rm master.zip
     mv magento2-zero-downtime-deploy-master deploy
+    rm deploy/installation.sh
     cp app/etc/env.php deploy/app/env.php
     cp deploy/app/static-content-deploy.sh.sample deploy/app/static-content-deploy.sh
 
