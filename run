@@ -105,7 +105,6 @@ cd $DIR
 INSTANCE="$PWD/instance"
 MAGE_INIT_PARAMS="--magento-init-params=MAGE_DIRS[base][path]=$INSTANCE&MAGE_DIRS[cache][path]=$INSTANCE/var/cache"
 
-SEK=SECONDS
 echo 'Remove old files ...'
 rm -rf $INSTANCE
 echo 'Create TMP instance folders and files ...'
