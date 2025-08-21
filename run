@@ -187,11 +187,11 @@ fi
 
 
 cd $INSTANCE
-echo 'Copy new files into Magento ... '
+echo 'Move new files into Magento ... '
 for i in "${GENERATED_FOLDERS[@]}"
 do
    : 
-   cp -rf $i "$MDIR/$i-deploy"
+   mv $i "$MDIR/$i-deploy"
 done
 
 #-------------------------------------
