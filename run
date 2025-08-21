@@ -108,8 +108,9 @@ MAGE_INIT_PARAMS="--magento-init-params=MAGE_DIRS[base][path]=$INSTANCE&MAGE_DIR
 SEK=SECONDS
 echo 'Remove old files ...'
 rm -rf $INSTANCE
-echo 'Create new instance folders and files ...'
+echo 'Create TMP instance folders and files ...'
 mkdir -p $INSTANCE;
+
 cd $INSTANCE
 
 mkdir -p generated;
@@ -127,21 +128,35 @@ cp -rf $MDIR/phpserver phpserver
 #cp -rf $MDIR/update update
 cp -rf $MDIR/composer.json composer.json
 cp -rf $MDIR/composer.lock composer.lock
+cp -rf $MDIR/auth.json auth.json
+#cp -rf $MDIR/patches patches
+cp -rf "$MDIR/.git" ".git"
 
 
 # temporary copy env.php file with save cache local
 rm app/etc/env.php
 cp -rf $DIR/app/env.php app/etc/env.php
 
+#-------------------------------------
+#Git & Composer
+cd $INSTANCE
+#Pull from Git
+git pull origin master
+#Install Composer Packages
+composer install
+#-------------------------------------
+
+cd $INSTANCE
+
 if [ "$SETUP_MODULES" ]; then
     echo 'Enabling modules ...'
-    bin/magento module:enable $SETUP_MODULES $MAGE_INIT_PARAMS
+    php -dmemory_limit=-1 bin/magento module:enable $SETUP_MODULES $MAGE_INIT_PARAMS
 fi
 
 echo 'Start deploying ...'
 
 if [ $SETUP_ALL ] || [ $SETUP_DI ]; then
-    bin/magento setup:di:compile
+    php -dmemory_limit=-1 bin/magento setup:di:compile
 fi
 
 if [ $SETUP_ALL ] || [ $SETUP_STATIC_CONTENT ]; then
@@ -153,9 +168,9 @@ fi
 
 if [ $SETUP_ALL ]; then
     #cd $MDIR
-    #bin/magento maintenance:enable
+    #php -dmemory_limit=-1 bin/magento maintenance:enable
     cd $INSTANCE
-    bin/magento setup:upgrade --keep-generated $MAGE_INIT_PARAMS
+    php -dmemory_limit=-1 bin/magento setup:upgrade --keep-generated $MAGE_INIT_PARAMS
 fi
 
 
@@ -172,6 +187,7 @@ else
 fi
 
 
+cd $INSTANCE
 echo 'Copy new files into Magento ... '
 for i in "${GENERATED_FOLDERS[@]}"
 do
@@ -179,6 +195,16 @@ do
    cp -rf $i "$MDIR/$i-deploy"
 done
 
+#-------------------------------------
+#Git & Composer
+cd $MDIR
+#Pull from Git
+git pull origin master
+#Install Composer Packages
+composer install
+#-------------------------------------
+
+cd $INSTANCE
 echo 'Replace files in Magento ... '
 for i in "${GENERATED_FOLDERS[@]}"
 do
@@ -187,9 +213,17 @@ do
    mv "$MDIR/$i-deploy" "$MDIR/$i"
 done
 
+cd $INSTANCE
 echo 'Remove magento pub/static/_cache ... '
 rm -rf "$MDIR/pub/static/_cache"
+rm -rf "$MDIR/var/.regenerate"
 
+#if [ $SETUP_ALL ]; then
+#    cd $MDIR
+#    php -dmemory_limit=-1 bin/magento maintenance:disable
+#fi
+
+cd $INSTANCE
 echo 'Replace old Magento files ... '
 for i in "${GENERATED_FOLDERS[@]}"
 do
@@ -197,15 +231,12 @@ do
    rm -rf "$MDIR/$i-old-deploy"
 done
 
-#if [ $SETUP_ALL ]; then
-#    cd $MDIR
-#    bin/magento maintenance:disable
-#fi
+cd $MDIR
+echo 'Flush the cache ...'
+php -dmemory_limit=-1 bin/magento c:e
+php -dmemory_limit=-1 bin/magento c:f
 
 cd $MDIR
-bin/magento c:e
-bin/magento c:f
-
 echo 'Remove tmp files ...'
 rm -rf $INSTANCE
 
