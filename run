@@ -213,9 +213,13 @@ do
 done
 
 cd $INSTANCE
-echo 'Remove magento pub/static/_cache ... '
 rm -rf "$MDIR/pub/static/_cache"
 rm -rf "$MDIR/var/.regenerate"
+
+cd $MDIR
+echo 'Enable and Flush the cache ...'
+php -dmemory_limit=-1 bin/magento c:e
+php -dmemory_limit=-1 bin/magento c:f
 
 #if [ $SETUP_ALL ]; then
 #    cd $MDIR
@@ -223,17 +227,12 @@ rm -rf "$MDIR/var/.regenerate"
 #fi
 
 cd $INSTANCE
-echo 'Replace old Magento files ... '
+echo 'Remove old Magento files ... '
 for i in "${GENERATED_FOLDERS[@]}"
 do
    : 
    rm -rf "$MDIR/$i-old-deploy"
 done
-
-cd $MDIR
-echo 'Flush the cache ...'
-php -dmemory_limit=-1 bin/magento c:e
-php -dmemory_limit=-1 bin/magento c:f
 
 cd $MDIR
 echo 'Remove tmp files ...'
